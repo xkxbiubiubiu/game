@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #cavs{
+            border: 1px solid black;
+            margin: 50px;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="cavs" height="500" width="500"></canvas>
+    <script>
+        
+        var cavs = document.getElementById('cavs')
+        var ctx = cavs.getContext('2d')
+
+        ctx.moveTo(100,100)
+        ctx.lineTo(200,100)
+        ctx.lineTo(200,200)
+        ctx.lineTo(100,100)
+        ctx.lineWidth = 20;
+        ctx.strokeStyle = '#ff0000'
+        ctx.closePath();
+        ctx.stroke();
+        //获取图像
+        var imgData = ctx.getImageData(70,70,160,160)
+        ctx.putImageData(imgData,300,300)
+        //清除
+        ctx.clearRect(0,0,500,500)
+    </script>
+</body>
+</html>
